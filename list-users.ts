@@ -22,7 +22,7 @@ const db = drizzle(client, { schema });
 
 async function main() {
     try {
-        console.log("Connecting to:", connectionString.split('@')[1] || "local");
+        console.log("Connecting to:", connectionString!.split('@')[1] || "local");
         console.log("Fetching users...");
         const allUsers = await db.select().from(schema.users);
 
