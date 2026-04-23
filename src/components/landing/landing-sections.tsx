@@ -116,36 +116,72 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
             {/* Step 1 */}
-            <div className="relative pt-12">
-              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">1</span>
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary mb-8 editorial-shadow">
+            <div className="relative">
+              {/* Mobile: icon centered on number */}
+              <div className="flex flex-col items-center mb-6 md:hidden">
+                <div className="relative flex items-center justify-center h-28 w-full">
+                  <span className="font-display text-[8rem] font-black text-on-surface/5 select-none leading-none">1</span>
+                  <div className="absolute w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary editorial-shadow">
+                    <span className="material-symbols-outlined">content_paste</span>
+                  </div>
+                </div>
+              </div>
+              {/* Desktop: icon centered on number */}
+              <div className="hidden md:block relative w-fit h-[12rem] mb-4">
+                <span className="font-display text-[12rem] font-black text-on-surface/5 select-none leading-none">1</span>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary editorial-shadow">
                   <span className="material-symbols-outlined">content_paste</span>
                 </div>
-                <h3 className="font-display text-4xl font-bold mb-4">Paste</h3>
-                <p className="text-on-surface-variant leading-relaxed font-body">Drop your oversized links into our minimalist engine. We handle the heavy lifting while you focus on the strategy.</p>
+              </div>
+              <div>
+                <h3 className="font-display text-4xl font-bold mb-4 text-center md:text-left">Paste</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body text-center md:text-left">Drop your oversized links into our minimalist engine. We handle the heavy lifting while you focus on the strategy.</p>
               </div>
             </div>
             {/* Step 2 */}
-            <div className="relative pt-12">
-              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">2</span>
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-on-surface flex items-center justify-center text-surface mb-8 editorial-shadow">
+            <div className="relative">
+              {/* Mobile: icon centered on number */}
+              <div className="flex flex-col items-center mb-6 md:hidden">
+                <div className="relative flex items-center justify-center h-28 w-full">
+                  <span className="font-display text-[8rem] font-black text-on-surface/5 select-none leading-none">2</span>
+                  <div className="absolute w-16 h-16 rounded-full bg-on-surface flex items-center justify-center text-surface editorial-shadow">
+                    <span className="material-symbols-outlined">edit_note</span>
+                  </div>
+                </div>
+              </div>
+              {/* Desktop: icon centered on number */}
+              <div className="hidden md:block relative w-fit h-[12rem] mb-4">
+                <span className="font-display text-[12rem] font-black text-on-surface/5 select-none leading-none">2</span>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-on-surface flex items-center justify-center text-surface editorial-shadow">
                   <span className="material-symbols-outlined">edit_note</span>
                 </div>
-                <h3 className="font-display text-4xl font-bold mb-4">Customize</h3>
-                <p className="text-on-surface-variant leading-relaxed font-body">Make it yours. Add a custom alias or branded back-half to ensure your links are recognizable and carry your brand authority.</p>
+              </div>
+              <div>
+                <h3 className="font-display text-4xl font-bold mb-4 text-center md:text-left">Customize</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body text-center md:text-left">Make it yours. Add a custom alias or branded back-half to ensure your links are recognizable and carry your brand authority.</p>
               </div>
             </div>
             {/* Step 3 */}
-            <div className="relative pt-12">
-              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">3</span>
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-8 editorial-shadow">
+            <div className="relative">
+              {/* Mobile: icon centered on number */}
+              <div className="flex flex-col items-center mb-6 md:hidden">
+                <div className="relative flex items-center justify-center h-28 w-full">
+                  <span className="font-display text-[8rem] font-black text-on-surface/5 select-none leading-none">3</span>
+                  <div className="absolute w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary editorial-shadow">
+                    <span className="material-symbols-outlined">verified_user</span>
+                  </div>
+                </div>
+              </div>
+              {/* Desktop: icon centered on number */}
+              <div className="hidden md:block relative w-fit h-[12rem] mb-4">
+                <span className="font-display text-[12rem] font-black text-on-surface/5 select-none leading-none">3</span>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary editorial-shadow">
                   <span className="material-symbols-outlined">verified_user</span>
                 </div>
-                <h3 className="font-display text-4xl font-bold mb-4">Secure</h3>
-                <p className="text-on-surface-variant leading-relaxed font-body">Your encrypted, custom link is ready. Every interaction is tracked with precision, giving you full control over your digital footprint.</p>
+              </div>
+              <div>
+                <h3 className="font-display text-4xl font-bold mb-4 text-center md:text-left">Secure</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body text-center md:text-left">Your encrypted, custom link is ready. Every interaction is tracked with precision, giving you full control over your digital footprint.</p>
               </div>
             </div>
           </div>

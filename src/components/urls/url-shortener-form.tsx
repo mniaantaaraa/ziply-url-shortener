@@ -141,17 +141,17 @@ export function UrlShortenerForm({ variant = "default" }: { variant?: "default" 
       <>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <div className="bg-on-surface rounded-full flex p-1 md:p-2 items-center editorial-shadow transition-all group-focus-within:ring-4 ring-primary/10">
+            <div className="bg-on-surface rounded-full flex p-1.5 md:p-2 items-center editorial-shadow transition-all group-focus-within:ring-4 ring-primary/10">
               <FormField
                 control={form.control}
                 name="url"
                 render={({ field }) => (
-                  <FormItem className="flex-1">
+                  <FormItem className="flex-1 min-w-0">
                     <FormControl>
                       <input
                         {...field}
-                        className="bg-transparent border-none text-surface placeholder:text-surface/40 w-full px-8 focus:ring-0 font-body text-lg outline-none"
-                        placeholder="https://your-long-complicated-url.com/path"
+                        className="bg-transparent border-none text-surface placeholder:text-surface/40 w-full px-4 md:px-8 focus:ring-0 font-body text-base md:text-lg outline-none"
+                        placeholder="https://your-long-url.com"
                         type="text"
                         disabled={isLoading}
                       />
@@ -160,7 +160,7 @@ export function UrlShortenerForm({ variant = "default" }: { variant?: "default" 
                 )}
               />
 
-              <div className="h-8 w-[1px] bg-surface/10 ml-2 mr-2 md:mr-4 block"></div>
+              <div className="h-8 w-[1px] bg-surface/10 ml-1 mr-1 md:ml-2 md:mr-4 block shrink-0"></div>
 
               <FormField
                 control={form.control}
@@ -183,7 +183,7 @@ export function UrlShortenerForm({ variant = "default" }: { variant?: "default" 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-surface text-on-surface w-14 h-14 rounded-full flex items-center justify-center active:scale-90 transition-transform disabled:opacity-50"
+                className="bg-surface text-on-surface w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full flex items-center justify-center active:scale-90 transition-transform disabled:opacity-50"
               >
                 {isLoading ? (
                   <span className="size-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
