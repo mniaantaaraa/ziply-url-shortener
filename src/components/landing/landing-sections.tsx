@@ -177,9 +177,6 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
             </a>
           </div>
         </div>
-        <div className="absolute -bottom-20 -right-20 font-display text-[20rem] font-black text-surface/[0.02] select-none pointer-events-none">
-          ZIPLY
-        </div>
       </section>
     </div>
   );
