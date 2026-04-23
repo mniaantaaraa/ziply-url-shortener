@@ -9,15 +9,15 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
       {/* Advanced Analytics Section */}
       <section id="features" className="w-full bg-surface-container-low px-6 py-20 md:py-40 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 md:gap-32">
-          <div className="w-full md:w-1/2 relative h-[300px] md:h-auto flex items-center">
-            <div className="font-display text-8xl md:text-[25rem] font-black text-on-surface/5 leading-none select-none tracking-tighter absolute left-0 top-1/2 -translate-y-1/2">
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-[400px] flex items-center justify-center">
+            <div className="font-display text-8xl md:text-[20rem] font-black text-on-surface/5 leading-none select-none tracking-tighter absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               500
             </div>
-            <div className="relative space-y-4">
+            <div className="relative space-y-4 z-10 text-center md:text-left">
               <div className="font-display text-6xl md:text-[12rem] font-black text-primary leading-none tracking-tighter">
                 1000+
               </div>
-              <p className="font-label text-on-surface uppercase tracking-[0.3em] font-black ml-4">Engagements Tracked</p>
+              <p className="font-label text-on-surface uppercase tracking-[0.3em] font-black">Engagements Tracked</p>
             </div>
           </div>
           <div className="w-full md:w-1/2">
@@ -83,7 +83,7 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
                 <span className="material-symbols-outlined text-surface text-6xl md:text-8xl relative z-10">verified_user</span>
               </div>
             </div>
-            <div className="font-display text-7xl md:text-[15rem] font-black text-on-surface/5 leading-none select-none tracking-tighter md:-translate-x-12 relative z-10 pointer-events-none">
+            <div className="font-display text-7xl md:text-[12rem] font-black text-on-surface/5 leading-none select-none tracking-tighter relative z-10 pointer-events-none">
               SECURE
             </div>
           </div>
