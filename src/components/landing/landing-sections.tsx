@@ -49,7 +49,7 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
               {/* Abstract QR-like pattern */}
               <div className="grid grid-cols-4 gap-2 w-full h-full opacity-10">
                 {Array.from({ length: 16 }).map((_, i) => (
-                  <div key={i} className={`bg-on-surface rounded-sm ${Math.random() > 0.5 ? 'opacity-100' : 'opacity-0'}`}></div>
+                  <div key={i} className={`bg-on-surface rounded-sm ${Math.random() > 0.5 ? "opacity-100" : "opacity-0"}`}></div>
                 ))}
               </div>
               <div className="absolute inset-x-0 top-0 h-1 bg-primary/30 animate-scan"></div>
@@ -149,6 +149,36 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="bg-on-surface py-20 md:py-32 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-[120px] -z-0"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="font-display text-5xl md:text-8xl font-black text-surface mb-8 tracking-tighter leading-[0.9]">
+            Ready to <br />Redefine <br /><span className="text-primary italic">the Link?</span>
+          </h2>
+          <p className="text-surface/60 text-lg md:text-xl mb-12 max-w-xl mx-auto font-body">
+            Join thousands of modern brands using Ziply to shorten, track, and optimize their digital footprint.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a
+              href="/register"
+              className="bg-primary hover:bg-primary/90 text-on-primary px-10 py-5 rounded-full font-bold text-lg transition-all active:scale-95 editorial-shadow"
+            >
+              Get Started for Free
+            </a>
+            <a
+              href="#features"
+              className="text-surface hover:text-primary transition-colors font-bold tracking-widest uppercase text-xs"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div className="absolute -bottom-20 -right-20 font-display text-[20rem] font-black text-surface/[0.02] select-none pointer-events-none">
+          ZIPLY
         </div>
       </section>
     </div>
