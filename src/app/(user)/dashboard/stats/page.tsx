@@ -137,46 +137,49 @@ export default function StatsPage() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-8 text-center">URL Statistics</h1>
+      <div className="mb-12 text-center">
+        <h1 className="font-display text-5xl font-black tracking-tighter mb-2">URL Statistics</h1>
+        <p className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">Performance Insights</p>
+      </div>
 
       <div className="grid gap-8 md:grid-cols-3 mb-8">
-        <Card className="shadow-sm">
+        <Card className="shadow-sm border-none bg-surface-container-low">
           <CardHeader className="pb-2">
-            <CardTitle>Total URLs</CardTitle>
-            <CardDescription>Number of URLs you&apos;ve created</CardDescription>
+            <CardTitle className="font-display text-xl font-bold">Total URLs</CardTitle>
+            <CardDescription className="font-label text-xs uppercase tracking-wider">Created Links</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold">{userUrls.length}</p>
+            <p className="font-display text-4xl font-black text-primary">{userUrls.length}</p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-sm">
+        <Card className="shadow-sm border-none bg-surface-container-low">
           <CardHeader className="pb-2">
-            <CardTitle>Total Clicks</CardTitle>
-            <CardDescription>Total clicks acroos all URLs</CardDescription>
+            <CardTitle className="font-display text-xl font-bold">Total Clicks</CardTitle>
+            <CardDescription className="font-label text-xs uppercase tracking-wider">Across all links</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold">{totalClicks}</p>
+            <p className="font-display text-4xl font-black text-primary">{totalClicks}</p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-sm">
+        <Card className="shadow-sm border-none bg-surface-container-low">
           <CardHeader className="pb-2">
-            <CardTitle>Average Clicks</CardTitle>
-            <CardDescription>Average clicks per URL</CardDescription>
+            <CardTitle className="font-display text-xl font-bold">Average Clicks</CardTitle>
+            <CardDescription className="font-label text-xs uppercase tracking-wider">Per URL performance</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold">{avgClicks}</p>
+            <p className="font-display text-4xl font-black text-primary">{avgClicks}</p>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="shadow-sm">
-        <CardHeader>
-          <CardTitle>Top Performing URLs</CardTitle>
-          <CardDescription>Top 5 URLs with most clicks</CardDescription>
+      <Card className="shadow-sm border-none bg-surface-container-low overflow-hidden">
+        <CardHeader className="px-8 py-8">
+          <CardTitle className="font-display text-3xl font-black tracking-tight">Top Performing URLs</CardTitle>
+          <CardDescription className="font-label text-sm uppercase tracking-widest text-primary font-bold">Top 5 Links with Most Engagement</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-8">
           <Tabs defaultValue="bar" className="w-full">
             <TabsList className="mb-4">
               <TabsTrigger value="bar">Bar Chart</TabsTrigger>

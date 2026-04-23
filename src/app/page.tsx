@@ -1,25 +1,33 @@
 import { UrlShortenerForm } from "@/components/urls/url-shortener-form";
 import { LandingSections } from "@/components/landing/landing-sections";
+import { getPlatformStats } from "@/server/actions/get-platform-stats";
 
-export default function Home() {
+export default async function Home() {
+  const { totalUrls, totalClicks } = await getPlatformStats();
+
   return (
-    <div className="flex flex-1 flex-col items-center py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="w-full pt-20 md:pt-24 pb-20">
-        <div className="w-full max-w-xl mx-auto text-center px-4 sm:px-6">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
-          Shorten Your Links
-        </h1>
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-2xl mx-auto">
-          Paste your long URL and get a shortened one. It&apos;s free and easy to
-          use.
-        </p>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative pt-16 md:pt-32 pb-20 px-6 overflow-hidden flex flex-col items-center text-center">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="font-display text-5xl md:text-7xl lg:text-[10rem] font-black leading-[0.85] tracking-tighter text-on-surface mb-12">
+            Redefining <br />the <span className="relative">Link<span className="absolute -bottom-2 left-0 w-full h-4 bg-primary/20 -skew-x-12 -z-10"></span></span>
+          </h1>
+          <div className="relative max-w-4xl mx-auto mt-16 group">
+            <div className="absolute -top-10 left-0 md:left-4">
+              <span className="font-label text-primary text-xs font-bold px-3 py-1 bg-primary/10 rounded-full rotate-[-4deg] inline-block">
+                Paste your long URL here
+              </span>
+            </div>
+            <UrlShortenerForm variant="landing" />
+          </div>
+        </div>
 
-        <div className="mt-4 space-y-3">
-          <UrlShortenerForm />
-        </div>
-        </div>
-      </div>
-      <LandingSections />
+        {/* Decorative Element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10"></div>
+      </section>
+
+      <LandingSections totalUrls={totalUrls} totalClicks={totalClicks} />
     </div>
   );
 }

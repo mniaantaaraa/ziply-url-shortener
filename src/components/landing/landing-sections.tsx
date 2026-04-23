@@ -1,144 +1,156 @@
-import Link from "next/link";
-import { BarChart3, Link2, QrCode, Sparkles, Users } from "lucide-react";
+interface LandingSectionsProps {
+  totalUrls: number;
+  totalClicks: number;
+}
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-const features = [
-  {
-    title: "Instant URL Shortening",
-    description: "Create short links in seconds with a clean and fast workflow.",
-    icon: Link2,
-  },
-  {
-    title: "Real-time Analytics",
-    description: "Track clicks, trends, and top-performing links as they happen.",
-    icon: BarChart3,
-  },
-  {
-    title: "AI-Powered Safety",
-    description: "Automatically check destination URLs before sharing them.",
-    icon: Sparkles,
-  },
-  {
-    title: "Custom Short Codes",
-    description: "Create branded and memorable short codes for every campaign.",
-    icon: Link2,
-  },
-  {
-    title: "QR Code Generation",
-    description: "Generate QR codes for quick sharing across print and digital channels.",
-    icon: QrCode,
-  },
-  {
-    title: "Role-Based Access",
-    description: "Control team permissions with secure user role management.",
-    icon: Users,
-  },
-];
-
-const howItWorksSteps = [
-  {
-    title: "Paste your URL",
-    description: "Add your long link and optional custom short code.",
-  },
-  {
-    title: "Generate and share",
-    description: "Create the short link instantly and share it anywhere.",
-  },
-  {
-    title: "Track performance",
-    description: "Use analytics insights to improve conversion and engagement.",
-  },
-];
-
-export function LandingSections() {
+export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps) {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section aria-labelledby="features-heading" className="py-24 md:py-32 space-y-12">
-        <div className="text-center">
-          <h2
-            id="features-heading"
-            className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
-          >
-            Built for modern teams
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Everything you need to shorten, monitor, and protect links at scale.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature) => (
-            <Card
-              key={feature.title}
-              className="rounded-2xl border border-border/50 p-6 md:p-8 hover:shadow-lg transition-shadow"
-            >
-              <CardHeader className="px-0 pb-2">
-                <feature.icon className="size-5 text-primary" />
-                <CardTitle className="text-lg mb-2">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="px-0">
-                <CardDescription className="leading-relaxed text-muted-foreground">
-                  {feature.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section aria-labelledby="how-it-works-heading" className="py-24 md:py-32 space-y-12">
-        <div className="text-center">
-          <h2
-            id="how-it-works-heading"
-            className="text-3xl md:text-4xl font-bold tracking-tight mb-4"
-          >
-            How it works
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {howItWorksSteps.map((step, index) => (
-            <Card
-              key={step.title}
-              className="rounded-2xl border border-border/50 p-6 hover:shadow-lg transition-shadow"
-            >
-              <CardHeader className="px-0 pb-2">
-                <p className="text-sm font-medium text-primary mb-2">Step {index + 1}</p>
-                <CardTitle className="text-lg">{step.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="px-0">
-                <CardDescription className="leading-relaxed text-muted-foreground">
-                  {step.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section aria-labelledby="cta-heading" className="py-24 md:py-32">
-        <Card className="max-w-3xl mx-auto text-center py-20 px-6 rounded-2xl border border-border/50 hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <CardTitle id="cta-heading" className="text-2xl md:text-3xl mb-4">
-              Start shortening smarter with Ziply
-            </CardTitle>
-            <CardDescription className="leading-relaxed text-muted-foreground mb-6">
-              Create secure, trackable short links and optimize your campaigns in minutes.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="px-0 mt-4">
-            <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button asChild>
-              <Link href="/register">Create free account</Link>
-            </Button>
-            <Button variant="outline" asChild>
-              <Link href="/login">Sign in</Link>
-            </Button>
+    <div className="w-full flex flex-col">
+      {/* Advanced Analytics Section */}
+      <section id="features" className="w-full bg-surface-container-low px-6 py-20 md:py-40 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 md:gap-32">
+          <div className="w-full md:w-1/2 relative h-[300px] md:h-auto flex items-center">
+            <div className="font-display text-8xl md:text-[25rem] font-black text-on-surface/5 leading-none select-none tracking-tighter absolute left-0 top-1/2 -translate-y-1/2">
+              500
             </div>
-          </CardContent>
-        </Card>
+            <div className="relative space-y-4">
+              <div className="font-display text-6xl md:text-[12rem] font-black text-primary leading-none tracking-tighter">
+                1000+
+              </div>
+              <p className="font-label text-on-surface uppercase tracking-[0.3em] font-black ml-4">Engagements Tracked</p>
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="font-display text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tighter mb-12">
+              Deep <br />High-Fi <br />Analytics.
+            </h2>
+            <p className="text-xl text-on-surface-variant max-w-md leading-relaxed mb-12 font-body">
+              Stop guessing. Start knowing. Every interaction is mapped with surgical precision, giving you the clarity needed to scale with confidence.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {["Click Heatmaps", "Geo-Location", "Device Insights", "Referrer Tracking"].map((tag) => (
+                <span key={tag} className="font-label text-xs font-bold text-on-surface uppercase tracking-widest border border-on-surface/10 px-4 py-2 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
+      {/* Dynamic QR Section */}
+      <section className="bg-surface py-20 md:py-40 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-32">
+          <div className="w-full md:w-1/2 relative flex items-center justify-center h-[300px] md:h-[400px]">
+            <div className="font-display text-8xl md:text-[20rem] font-black text-on-surface/5 leading-none select-none tracking-tighter">
+              QR
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 border-4 border-primary rounded-3xl editorial-shadow bg-surface p-4">
+              {/* Abstract QR-like pattern */}
+              <div className="grid grid-cols-4 gap-2 w-full h-full opacity-10">
+                {Array.from({ length: 16 }).map((_, i) => (
+                  <div key={i} className={`bg-on-surface rounded-sm ${Math.random() > 0.5 ? 'opacity-100' : 'opacity-0'}`}></div>
+                ))}
+              </div>
+              <div className="absolute inset-x-0 top-0 h-1 bg-primary/30 animate-scan"></div>
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="font-display text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tighter mb-12">
+              Dynamic <br />QR Codes.
+            </h2>
+            <p className="text-xl text-on-surface-variant max-w-md leading-relaxed mb-12 font-body">
+              Connect the physical world to your digital metrics. Generate static or dynamic codes that remain editable even after they're in the wild.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {["SVG Export", "Branded Colors", "Scan Analytics", "Dynamic Redirects"].map((tag) => (
+                <span key={tag} className="font-label text-xs font-bold text-on-surface-variant uppercase tracking-widest border border-on-surface/10 px-4 py-2 rounded-full italic">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Privacy & Security Section */}
+      <section className="bg-surface-container-low py-20 md:py-40 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center gap-12 md:gap-32">
+          <div className="w-full md:w-1/2 relative flex items-center justify-center h-[300px] md:h-[400px]">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 flex items-center justify-center z-0">
+              <div className="w-32 h-32 md:w-48 md:h-48 bg-on-surface rounded-full flex items-center justify-center editorial-shadow relative overflow-hidden">
+                <div className="absolute inset-0 bg-primary/10 animate-pulse"></div>
+                <span className="material-symbols-outlined text-surface text-6xl md:text-8xl relative z-10">verified_user</span>
+              </div>
+            </div>
+            <div className="font-display text-7xl md:text-[15rem] font-black text-on-surface/5 leading-none select-none tracking-tighter md:-translate-x-12 relative z-10 pointer-events-none">
+              SECURE
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <h2 className="font-display text-6xl md:text-8xl font-black text-on-surface leading-[0.9] tracking-tighter mb-12">
+              Privacy <br />First <br />Security.
+            </h2>
+            <p className="text-xl text-on-surface-variant max-w-md leading-relaxed mb-12 font-body">
+              Every link is scanned for threats before redirection. We protect your audience from phishing and malware with our automated safety engine.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {["Phishing Detection", "Malware Scanning", "Data Encryption", "No Ad-Trackers"].map((tag) => (
+                <span key={tag} className="font-label text-xs font-bold text-on-surface-variant uppercase tracking-widest border border-on-surface/10 px-4 py-2 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works: Step Process */}
+      <section id="process" className="bg-surface py-20 md:py-40 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+            <h2 className="font-display text-6xl md:text-8xl font-black tracking-tighter">The <br />Process.</h2>
+            <div className="bg-on-surface text-surface px-8 py-4 rounded-full font-bold text-sm tracking-widest uppercase mb-4">
+              Effortless Workflow
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+            {/* Step 1 */}
+            <div className="relative pt-12">
+              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">1</span>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary mb-8 editorial-shadow">
+                  <span className="material-symbols-outlined">content_paste</span>
+                </div>
+                <h3 className="font-display text-4xl font-bold mb-4">Paste</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body">Drop your oversized links into our minimalist engine. We handle the heavy lifting while you focus on the strategy.</p>
+              </div>
+            </div>
+            {/* Step 2 */}
+            <div className="relative pt-12">
+              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">2</span>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-full bg-on-surface flex items-center justify-center text-surface mb-8 editorial-shadow">
+                  <span className="material-symbols-outlined">edit_note</span>
+                </div>
+                <h3 className="font-display text-4xl font-bold mb-4">Customize</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body">Make it yours. Add a custom alias or branded back-half to ensure your links are recognizable and carry your brand authority.</p>
+              </div>
+            </div>
+            {/* Step 3 */}
+            <div className="relative pt-12">
+              <span className="font-display text-8xl md:text-[12rem] font-black text-on-surface/5 absolute -top-12 left-0 select-none">3</span>
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-8 editorial-shadow">
+                  <span className="material-symbols-outlined">verified_user</span>
+                </div>
+                <h3 className="font-display text-4xl font-bold mb-4">Secure</h3>
+                <p className="text-on-surface-variant leading-relaxed font-body">Your encrypted, custom link is ready. Every interaction is tracked with precision, giving you full control over your digital footprint.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

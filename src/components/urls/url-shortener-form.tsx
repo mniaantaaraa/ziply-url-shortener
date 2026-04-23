@@ -23,7 +23,7 @@ import { QRCodeModal } from "../modals/qr-code-modal";
 import { toast } from "sonner";
 import { SignupSuggestionDialog } from "../dialogs/signup-suggestion-dialog";
 
-export function UrlShortenerForm() {
+export function UrlShortenerForm({ variant = "default" }: { variant?: "default" | "landing" }) {
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -125,6 +125,7 @@ export function UrlShortenerForm() {
 
     try {
       await navigator.clipboard.writeText(shortUrl);
+      toast.success("Copied to clipboard");
     } catch (error) {
       console.error(error);
     }
@@ -134,6 +135,152 @@ export function UrlShortenerForm() {
     if (!shortUrl || !shortCode) return;
     setIsQrCodeModalOpen(true);
   };
+
+  if (variant === "landing") {
+    return (
+      <>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <div className="bg-on-surface rounded-full flex p-1 md:p-2 items-center editorial-shadow transition-all group-focus-within:ring-4 ring-primary/10">
+              <FormField
+                control={form.control}
+                name="url"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <input
+                        {...field}
+                        className="bg-transparent border-none text-surface placeholder:text-surface/40 w-full px-8 focus:ring-0 font-body text-lg outline-none"
+                        placeholder="https://your-long-complicated-url.com/path"
+                        type="text"
+                        disabled={isLoading}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <div className="h-8 w-[1px] bg-surface/10 ml-2 mr-2 md:mr-4 block"></div>
+
+              <FormField
+                control={form.control}
+                name="customCode"
+                render={({ field }) => (
+                  <FormItem className="w-20 md:w-40 shrink-0">
+                    <FormControl>
+                      <input
+                        {...field}
+                        className="bg-transparent border-none text-surface placeholder:text-surface/40 w-full px-1 md:px-2 focus:ring-0 font-body text-sm md:text-lg outline-none"
+                        placeholder="Custom"
+                        type="text"
+                        disabled={isLoading}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="bg-surface text-on-surface w-14 h-14 rounded-full flex items-center justify-center active:scale-90 transition-transform disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <span className="size-5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                ) : (
+                  <span className="material-symbols-outlined">arrow_forward</span>
+                )}
+              </button>
+            </div>
+            <FormMessage />
+
+            {error && (
+              <div className="p-4 bg-destructive/10 text-destructive rounded-2xl text-sm editorial-shadow">
+                <div className="flex items-center justify-between gap-3">
+                  <p>{error}</p>
+                  {error.toLowerCase().includes("flagged as malicious") && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleShortenAnyway}
+                      disabled={isLoading}
+                      className="rounded-full"
+                    >
+                      Shorten anyway
+                    </Button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {shortUrl && (
+              <div className="bg-surface-container-lowest p-6 rounded-2xl editorial-shadow animate-in fade-in slide-in-from-top-4 duration-500">
+                <p className="font-label text-on-surface-variant uppercase tracking-[0.2em] text-xs font-bold mb-4">
+                  Your shortened URL
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 bg-surface-container-low px-6 py-4 rounded-full font-bold text-lg overflow-hidden whitespace-nowrap overflow-ellipsis">
+                    {shortUrl}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={copyToClipboard}
+                    className="bg-primary text-on-primary p-4 rounded-full active:scale-90 transition-transform"
+                  >
+                    <Copy className="size-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showQrCode}
+                    className="bg-on-surface text-surface p-4 rounded-full active:scale-90 transition-transform"
+                  >
+                    <QrCode className="size-5" />
+                  </button>
+                </div>
+
+                {flaggedInfo && flaggedInfo.flagged && (
+                  <div className="mt-6 p-6 bg-secondary-container/20 border border-secondary-container/30 rounded-2xl">
+                    <div className="flex items-start gap-4">
+                      <AlertTriangle className="size-6 text-on-secondary-container shrink-0" />
+                      <div className="space-y-1">
+                        <p className="font-bold text-on-secondary-container">
+                          Flagged for review
+                        </p>
+                        <p className="text-sm text-on-secondary-container/80 leading-relaxed">
+                          {flaggedInfo.message || "This URL will be reviewed by an administrator."}
+                        </p>
+                        {flaggedInfo.reason && (
+                          <p className="text-xs text-on-secondary-container/60 mt-2 font-medium italic">
+                            Reason: {flaggedInfo.reason}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </form>
+        </Form>
+
+        <SignupSuggestionDialog
+          isOpen={showSignupDialog}
+          onOpenChange={setShowSignupDialog}
+          shortUrl={shortUrl || ""}
+        />
+
+        {shortUrl && shortCode && (
+          <QRCodeModal
+            isOpen={isQrCodeModalOpen}
+            onOpenChange={setIsQrCodeModalOpen}
+            url={shortUrl}
+            shortCode={shortCode}
+          />
+        )}
+      </>
+    );
+  }
 
   return (
     <>
@@ -179,9 +326,9 @@ export function UrlShortenerForm() {
                     <div className="flex items-center gap-3">
                       <div className="flex-1 h-12 rounded-lg border bg-muted/40 px-4 flex items-center">
                         <span className="text-sm text-muted-foreground truncate">
-                        {process.env.NEXT_PUBLIC_APP_URL ||
-                          (typeof window !== "undefined" ? window.location.origin : "")}
-                        /r/
+                          {process.env.NEXT_PUBLIC_APP_URL ||
+                            (typeof window !== "undefined" ? window.location.origin : "")}
+                          /r/
                         </span>
                       </div>
                       <Input
