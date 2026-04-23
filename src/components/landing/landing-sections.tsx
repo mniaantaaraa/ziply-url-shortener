@@ -40,7 +40,7 @@ export function LandingSections({ totalUrls, totalClicks }: LandingSectionsProps
 
       {/* Dynamic QR Section */}
       <section className="bg-surface py-20 md:py-40 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-32">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12 md:gap-32">
           <div className="w-full md:w-1/2 relative flex items-center justify-center h-[300px] md:h-[400px]">
             <div className="font-display text-8xl md:text-[20rem] font-black text-on-surface/5 leading-none select-none tracking-tighter">
               QR
