@@ -43,7 +43,7 @@ export function Footer() {
             </div>
 
             <div className="max-w-7xl mx-auto pt-24 mt-24 border-t border-on-surface/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p className="font-body text-sm text-on-surface-variant">© 2024 Ziply.</p>
+                <p className="font-body text-sm text-on-surface-variant">© 2026 Ziply.</p>
                 <div className="flex gap-8">
                     <span className="font-label text-xs font-bold text-on-surface/20">Handcrafted for Quality</span>
                     <span className="font-label text-xs font-bold text-on-surface/20">Global Scale Architecture</span>
