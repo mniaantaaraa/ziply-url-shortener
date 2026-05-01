@@ -1,6 +1,20 @@
-#  🔗 Ziply (AI-Powered URL Shortener)
+<h1 align="center">
+  🔗 Ziply
+</h1>
 
-**Ziply** is a modern, high-performance URL shinortener built with **Next.js 15**, **Drizzle ORM**, and **Google Gemini AI**.  
+<p align="center">
+  <strong>AI-Powered URL Shortener with Real-Time Safety Analysis</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/Google_Gemini-AI-orange?style=for-the-badge&logo=google" alt="Gemini AI" />
+  <img src="https://img.shields.io/badge/Drizzle-ORM-green?style=for-the-badge" alt="Drizzle ORM" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Neon-blue?style=for-the-badge&logo=postgresql" alt="PostgreSQL" />
+</p>
+
+**Ziply** is a modern, high-performance URL shortener built with **Next.js 15**, **Drizzle ORM**, and **Google Gemini AI**.  
 It goes beyond traditional link shorteners by offering **real-time safety analysis** and **detailed risk insights** for every URL you create.
 
 ---
