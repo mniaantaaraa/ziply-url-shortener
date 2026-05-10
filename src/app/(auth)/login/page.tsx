@@ -25,7 +25,7 @@ export default function LoginPage() {
           <CardHeader className="space-y-1">
             <CardTitle>Sign in</CardTitle>
             <CardDescription>
-              Choose a sign-in method below to continue.
+              Enter your email and password to continue.
             </CardDescription>
           </CardHeader>
           <CardContent>
