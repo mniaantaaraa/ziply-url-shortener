@@ -1,5 +1,5 @@
 <h1 align="center">
-  Ziply
+  Ziply 
 </h1>
 
 <p align="center">
