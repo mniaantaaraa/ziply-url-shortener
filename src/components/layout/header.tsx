@@ -53,15 +53,15 @@ export function Header() {
             {isAuthenticated ? (
               <div className="flex items-center gap-4">
                 <Button variant={"ghost"} className="font-bold flex items-center gap-2 rounded-full px-6" asChild>
-                  <Link href={"/dashboard/stats"}>
-                    <BarChart3 className="size-4" />
-                    Analytics
-                  </Link>
-                </Button>
-                <Button variant={"ghost"} className="font-bold flex items-center gap-2 rounded-full px-6" asChild>
                   <Link href={"/dashboard"}>
                     <LayoutDashboard className="size-4" />
                     Dashboard
+                  </Link>
+                </Button>
+                <Button variant={"ghost"} className="font-bold flex items-center gap-2 rounded-full px-6" asChild>
+                  <Link href={"/dashboard/stats"}>
+                    <BarChart3 className="size-4" />
+                    Analytics
                   </Link>
                 </Button>
                 <Button onClick={() => signOut()} variant="outline" className="rounded-full px-6 font-bold">
